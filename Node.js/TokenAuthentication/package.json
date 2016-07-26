@@ -1,0 +1,20 @@
+{
+  "name": "token-authentication",
+  "version": "1.0.0",
+  "description": "Authentication using JWT",
+  "main": "server.js",
+  "author": "Rony Moura <ronymmoura@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "colors": "^1.1.2",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.6",
+    "mongoose": "^4.5.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
