@@ -1,4 +1,4 @@
-module.exports = function(router) {
+module.exports = function (router) {
     
     router.route('/test')
         .get(function(req, res) {

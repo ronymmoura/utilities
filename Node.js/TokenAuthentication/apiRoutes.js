@@ -1,8 +1,24 @@
-var testController  = require('./apiControllers/testController');
-var route           = require('./route');
+var loginController     = require('./apiControllers/loginController'),
+    testController      = require('./apiControllers/testController');
 
-module.exports = function (router) {
+module.exports = {
+    /**
+     * Register the public routes.
+     * @param {Router} router Express router
+     */
+    public: function (router) {
     
-    testController(router);
+        loginController(router);
+
+    },
     
+    /**
+     * Register the restrict routes.
+     * @param {Router} router Express router
+     */
+    restrict: function (router) {
+        
+        testController(router);
+        
+    }
 };

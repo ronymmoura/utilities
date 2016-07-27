@@ -44,7 +44,9 @@ router.get('/', function (req, res) {
     res.json({ status: 'OK' });
 });
 
-apiRoutes(router);
+apiRoutes.public(router);
+
+apiRoutes.restrict(router);
 
 app.use('/api', router);
 
