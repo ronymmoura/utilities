@@ -1,4 +1,4 @@
-var loginController     = require('./apiControllers/loginController'),
+var authController     = require('./apiControllers/authController'),
     testController      = require('./apiControllers/testController');
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
      */
     public: function (router) {
     
-        loginController(router);
+        authController.public(router);
 
     },
     
@@ -17,6 +17,8 @@ module.exports = {
      * @param {Router} router Express router
      */
     restrict: function (router) {
+        
+        authController.restrict(router);
         
         testController(router);
         

@@ -46,6 +46,29 @@ router.get('/', function (req, res) {
 
 apiRoutes.public(router);
 
+// Validate the jwt for the requests from this point
+router.use(function (req, res, next) {
+    
+    var bearerHeader = req.headers['authorization'];
+    
+    if(bearerHeader) {
+        
+        var bearer = bearerHeader.split(" ");
+        var bearerToken = bearer[1];
+        
+        jwt.verify(bearerToken, 'secret', function (err, decoded) {
+            if(err) res.sendStatus(401);
+            else {
+                req.user = decoded;
+                next();
+            }
+        });
+        
+    } else {
+        res.sendStatus(401);
+    }
+});
+
 apiRoutes.restrict(router);
 
 app.use('/api', router);
